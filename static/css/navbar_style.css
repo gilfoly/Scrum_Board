@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Pangolin&display=swap');
+*{
+  font-family: 'Pangolin', sans-serif !important;
+}
+html,body{
+    width: 100% !important;
+    height: 100% !important;
+    background: url('/static/img/ScrumBoard.jpg');
+}
+
+.container-header{
+  padding: 10px;
+  float: center;
+  color: #000000;
+  text-align: center;
+  background-color: #ffffff;
+}
+.column-header {
+  float: left;
+  font-size: 20px;
+  width: 20%;
+  padding: 10px;
+  height: 470px;
+  border-right: solid;
+  border-width: 10px;
+  border-color: #95f25e;
+}
+
+.navbar{
+    background-color: #0f0f0f  !important;
+}
+
+.bg-dark {
+    background-color: #0f0f0f  !important;
+}
+
+.navbar-dark .navbar-brand{
+    font-size: 35px;
+    color: #ffffff !important;
+    transition: 0.2s ease-in-out;
+}
+
+.navbar-brand:hover{
+    color: #95f25e !important; 
+}
+
+
+.navbar-dark .navbar-nav .nav-item{
+    margin: 0 2px;
+    font-size: 25px;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+}
+.navbar-dark .navbar-nav .nav-item:hover{
+    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #95f25e !important;
+
+}

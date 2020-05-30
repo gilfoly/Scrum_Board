@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+         />
+      <meta name="theme-color" content="#000000" />
+
+    
+      <link href="{{ url_for('static',filename='css/navbar_style.css') }}" rel="stylesheet">
+      <link href="{{ url_for('static',filename='css/scrum.css') }}" rel="stylesheet">
+
+      <link href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+      <title>Scrum Board</title>
+   </head>
+   <body>
+      <div>
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <div class="container-fluid">
+            <a href="{{ url_for('home') }}" class="navbar-brand">
+            Scrum Board</a>
+            <div class="collapse navbar-collapse">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-link" class="navbar-brand">
+                     <a >{{ user }}</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <br />
+      <br />
+      <br />
+
+      <!-- Add Story -->
+
+      <div  class="header addStory" >
+         <h3 > Add Story</h3>
+         <form method = "POST" action="/addStory">
+         <input type="text" id="story" name="story" placeholder="Title..." required>
+         <button type="submit" class="addBtn">Add</button>
+
+         </form>
+      </div>
+      <br />
+      <br />
+
+      <!-- Flash message -->
+      <div>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+               {% for category,message in messages %}
+                  <div class="alert alert-{{ category }}" role="alert">
+                    <strong>{{ message }}</strong>
+                  </div>
+               {% endfor %}
+            {% endif %}
+         {% endwith %}
+      </div>
+
+      <!-- Scrum board -->
+      <div class="board">
+
+         <div class="row">
+
+            <!-- ICEBOX -->
+            <div class="column-header">
+                  <div class="container-header">Icebox</div>
+                  <hr>
+                  {% for i in range( iceboxList|length ) %}
+                  <div class="card status">
+                     <h1>{{ iceboxList[i][1] }}</h1>
+                     <h2>{{ iceboxList[i][2] }}</h2>
+                     <form action="/update" method="POST">
+                     <p><button name="storyID" id = "storyID" value= {{ iceboxList[i][0]  }}  type="submit">Update Status</button></p>
+                     </form>
+                     <form action="/emergency" method="POST">
+                     <p><button name="storyID" id = "storyID" value= {{ iceboxList[i][0]  }}  type="submit">Important</button></p>
+                     </form>
+                  </div> 
+                  <br />
+                  {% endfor %}                  
+            </div>
+
+            <!-- EMERGENCY -->
+            <div class="column-header">
+               <div class="container-header emergencyDiv ">Emergency</div>
+                  <hr>
+                  {% for i in range( emergencyList|length ) %}
+                  <div class="card emergencyDiv" >
+                     <h1>{{ emergencyList[i][1] }}</h1>
+                     <h2>{{ emergencyList[i][2] }}</h2>
+                     <form action="/update" method="POST">
+                     <p><button name="storyID" id = "storyID" value= {{ emergencyList[i][0]  }}  type="submit">Update Status</button></p>
+                     </form>
+                  </div> 
+                  <br />
+                  {% endfor %}
+
+            </div>
+
+            <!-- IN PROGRESS -->
+            <div class="column-header">
+               <div class="container-header">In Progress</div>
+                  <hr>
+                  {% for i in range( inprogressList|length ) %}
+                  <div class="card status">
+                     <h1>{{ inprogressList[i][1] }}</h1>
+                     <h2>{{ inprogressList[i][2] }}</h2>
+                     <form action="/update" method="POST">
+                     <p><button name="storyID" id = "storyID" value= {{ inprogressList[i][0]  }}  type="submit">Update Status</button></p>
+                     </form>
+                  </div>
+                  <br />
+                  {% endfor %}
+            </div>
+
+            <!-- TESTING -->
+            <div class="column-header">
+               <div class="container-header">Testing</div>
+                  <hr>
+                  {% for i in range( testingList|length ) %}
+                  <div  class="card status">
+                     <h1>{{ testingList[i][1] }}</h1>
+                     <h2>{{ testingList[i][2] }}</h2>
+                     <form action="/update" method="POST">
+                     <p><button name="storyID" id = "storyID" value= {{ testingList[i][0]  }}  type="submit">Update Status</button></p>
+                     </form>
+                  </div> 
+                  <br />
+                  {% endfor %}
+            </div>
+
+            <!-- COMPLETE -->
+            <div class="column-header" >
+               <div class="container-header">Complete</div>
+                  <hr>
+                  {% for i in range( completeList|length ) %}
+                  <div class="card status">
+                     <h1>{{ completeList[i][1] }}</h1>
+                     <h2>{{ completeList[i][2] }}</h2>
+                  </div> 
+                  <br />
+                  {% endfor %}
+
+            </div>
+         </div>
+
+         </div>
+         </div>
+   </body>
+</html>

@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.header {
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #ff1f2a;
+  color: #ffffff;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+  font-size: 2px;
+
+}
+
+.card button {
+  border: none;
+  color: white;
+  background-color: #2fd62f;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+  width: 70%;
+  height: 20px;
+  font-size: 15px;
+}
+
+.card h1{
+ font-size: 20px; 
+}
+
+.addStory{
+  padding-right: 30px; 
+  color: #ff1f2a;
+}
+
+.card h2{
+  font-size: 8px;
+}
+
+.column-header hr{
+  border: 5px solid; 
+  color: #95f25e
+}
+
+.column-header .emergencyDiv{
+  background-color: #ff1f2a; 
+  color: #ffffff;
+}
+
+.column-header .status{
+    background-color: #82e6ff;
+}
+
+.board{
+  background-color: #000000; 
+  border: 5px solid #c7c7c7;
+}
+
